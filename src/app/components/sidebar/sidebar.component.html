@@ -1,0 +1,28 @@
+<ng-container *ngTemplateOutlet="loadingTpl"></ng-container>
+
+
+<div class="wrapper" [style.width]="(openSideBar)? '50%':'3%'">
+    <div class="wrapper-btn">
+        <button (click)="toggleMenu()">
+            <i class="uil uil-angle-left-b"></i>
+        </button>
+    </div>
+    <div class="wrapper-sections">
+        <div class="in-wrapper">
+           <ng-container *ngIf="ocrService.showImage">
+            <canvas #outputImg class="canvas-overlay"></canvas>
+              <img (load)="loadedImage()" #inputImg class="inputImage" [src]="image" alt="">
+           </ng-container>
+           
+        </div>
+        
+    </div>
+</div>
+
+<ng-template #loadingTpl>
+    <div class="loading" *ngIf="loadingPercentage>0">
+      <div class="in">
+        analyzing the text of the image...{{loadingPercentage | number:'1.2-2'}}% .....
+      </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <ul class="list-file">
+        <li class="item-file"  *ngFor="let item of listImages">
+            <div class="block">
+                <img (click)="clickImage(item)" [src]="item.src" alt="">
+            </div>
+        </li>
+    </ul>
+</div>
